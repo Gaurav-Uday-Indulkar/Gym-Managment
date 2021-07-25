@@ -1,0 +1,964 @@
+<!DOCTYPE html> 
+<html>
+   <head>    
+   <title> Bootstrap Example </title> 
+   <meta charset="utf-8"> 
+   <meta name="viewport" content="width=device-width, initial-scale=1"> 
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="nav.css"/>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+
+<!--ANIMATION LINK-->
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+<!--Animation Libraray link-->
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" /> 
+ <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script> 
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+     <link rel="stylesheet"
+     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  
+   <style>
+   /*STYLING NAVBAR*/
+*{
+    margin: 0;
+    padding: 0;
+   /* color: #f2f5f7;*/
+    font-family: sans-serif;
+    letter-spacing: 1px;
+    font-weight: 300;
+}
+
+body{
+   overflow-x: hidden;
+}
+nav{
+    height: 6rem;
+    width: 100vw;
+    background-color: /*#131418*//*#483d2d*/#0c3138/*tomato*/;
+    box-shadow: 0 3px 20px rgba(0, 0, 0, 0.2);
+    display: flex;
+    position: fixed;
+    z-index: 10;
+}
+
+/*Styling logo*/
+.logo{
+    padding:1vh 1vw;
+    text-align: center;
+font-family:Helvetica,Arial,Sans-Serif;
+      font-size: 50px;
+ font-weight: bold;
+      display: inline-block;
+      margin: 0;
+      line-height: 1em;
+      background: linear-gradient(to right,#2980b9 50%, white 50%);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+}
+.logo img {
+    height: 5rem;
+    width: 5rem;
+}
+
+/*Styling Links*/
+.nav-links2{
+    display: flex;
+    list-style: none; 
+    width: 88vw;
+    padding: 0 0.7vw;
+    justify-content: space-evenly;
+    align-items: center;
+    text-transform: uppercase;
+}
+.nav-links2 li a{
+    text-decoration: none;
+    margin: 0 0.7vw;
+    color: white;
+}
+.nav-links2 li a:hover {
+    color: #61DAFB;
+}
+.nav-links2 li {
+    position: relative;
+}
+.nav-links2 li a::before {
+    content: "";
+    display: block;
+    height: 3px;
+    width: 0%;
+   background-color: #61DAFB;
+    position: absolute;
+    transition: all ease-in-out 250ms;
+    margin: 0 0 0 10%;
+}
+.nav-links2 li a:hover::before{
+    width: 80%;
+}
+/*Styling Hamburger Icon*/
+.hamburger div{
+    width: 30px;
+    height:3px;
+    background: #f2f5f7;
+    margin: 5px;
+    transition: all 0.3s ease;
+}
+.hamburger{
+    display: none;
+}
+
+/*Stying for small screens*/
+@media screen and (max-width: 800px){
+    nav{
+        position: fixed;
+        z-index: 3;
+    }
+    .hamburger{
+        display:block;
+        position: absolute;
+        cursor: pointer;
+        right: 5%;
+        top: 50%;
+        transform: translate(-5%, -50%);
+        z-index: 2;
+        transition: all 0.7s ease;
+    }
+ .nav-links2{ 
+        position: fixed;
+        background: /*#131418*/#0c3138;
+        height: 100vh;
+        width: 100%;
+        flex-direction: column;
+        clip-path: circle(50px at 90% -20%);
+        -webkit-clip-path: circle(50px at 90% -10%);
+        transition: all 1s ease-out;
+        pointer-events: none;
+    }
+    .nav-links2.open{
+        clip-path: circle(1000px at 90% -10%);
+        -webkit-clip-path: circle(1000px at 90% -10%);
+        pointer-events: all;
+    }
+    /*Added extrea*/
+/*.nav-links2 li a{
+    text-decoration: none;
+    margin: 0 0.7vw;
+    color: white;
+}*/
+
+/*STYLLING NAV TOGGLER*/
+   .nav-links2 li{
+        opacity: 1;
+    }
+    .nav-links2 li:nth-child(1){
+        transition: all 0.5s ease 0.2s;
+        opacity: 1;
+        /*text-shadow: 5px 5px 10px white;*/
+    }
+    .nav-links2 li:nth-child(2){
+        transition: all 0.5s ease 0.4s;
+  opacity: 1;
+   }
+    .nav-links2 li:nth-child(3){
+        transition: all 0.5s ease 0.6s;
+opacity: 1;
+    }
+    .nav-links2 li:nth-child(4){
+        transition: all 0.5s ease 0.7s;
+opacity: 1;
+    }
+    .nav-links2 li:nth-child(5){
+        transition: all 0.5s ease 0.8s;
+opacity: 1;
+    }
+    .nav-links2 li:nth-child(6){
+      transition: all 0.5s ease 0.9s;
+      opacity: 1;
+    }
+    .nav-links2 li:nth-child(6){
+        transition: all 0.5s ease 0.9s;
+        margin: 0;
+    }
+    .nav-links2 li:nth-child(7){
+        transition: all 0.5s ease 1s;
+        margin: 0;
+    }
+    li.fade{
+        opacity: 1;
+    }
+}
+
+/*ANIMATING Hamburger ICON ON CLICK*/
+.toggle .line1{
+    transform: rotate(-45deg) translate(-5px,6px);
+}
+.toggle .line2{
+    transition: all 0.7s ease;
+    width:0;
+}
+.toggle .line3{
+    transform: rotate(45deg) translate(-5px,-6px);
+}
+   
+   /*STYLING FOOTER*/
+ul { 
+  margin: 0px;
+  padding: 0px;
+  } 
+  .footer-section { 
+    background: #151414; 
+    position: relative;
+box-shadow: 0 3px 20px rgba(0, 0, 0, 0.9);
+    } 
+    .footer-cta {
+      border-bottom: 1px solid #373636; } 
+      .single-cta i { 
+        color: #ff5e14;
+        font-size: 30px; 
+        float: left;
+        margin-top: 8px; 
+      } 
+      .cta-text { 
+        padding-left: 15px;
+        display: inline-block;
+        } 
+        .cta-text h4 {
+          color: #fff; 
+          font-size: 20px; 
+          font-weight: 600; 
+          margin-bottom: 2px; 
+        } 
+        .cta-text span { 
+          color: #757575;
+          font-size: 15px;
+          } 
+          .footer-content {
+            position: relative;
+            z-index: 2; 
+          } 
+          .footer-pattern img { position: absolute;
+          top: 0;
+          left: 0; 
+          height: 330px; 
+          background-size: cover; background-position: 100% 100%;
+          } 
+          .footer-logo {
+            margin-bottom: 30px; 
+          } 
+          .footer-logo img { max-width: 200px; } .footer-text p { margin-bottom: 14px; font-size: 14px; color: #7e7e7e; line-height: 28px; } .footer-social-icon span { color: #fff;
+          display: block; 
+          font-size: 20px; 
+          font-weight: 700; 
+          font-family: 'Poppins', sans-serif;
+          margin-bottom: 20px; 
+          }
+          .footer-social-icon a { color: #fff; font-size: 25px; margin-right: 15px;
+          padding: 5px;
+          }
+          .footer-social-icon i { height: 40px; width: 40px; text-align: center; line-height: 38px; border-radius: 50%; 
+            padding: 30px;
+          } 
+          .footer-widget-heading h3 { color: #fff; 
+          font-size: 20px; 
+          font-weight: 600; 
+          margin-bottom: 40px; 
+          position: relative; 
+          } 
+          .footer-widget-heading h3::before { 
+            content: ""; 
+            position: absolute; 
+            left: 0;
+            bottom: -15px; 
+            height: 2px; 
+            width: 70px; 
+            background: /*#ff5e14*/#18af23;
+            } 
+            
+ .footer-widget ul li { 
+   display: inline-block; 
+   float: left; 
+   width: 50%; 
+   margin-bottom: 12px;
+   } 
+   .footer-widget ul li a:hover{
+     color: #ff5e14;
+     } 
+     .footer-widget ul li a { 
+       color: #878787;
+       text-transform: capitalize;
+       } 
+       .subscribe-form { position: relative; overflow: hidden; } .subscribe-form input { width: 100%; padding: 14px 28px; background: #2E2E2E; border: 1px solid #2E2E2E; color: #fff; } 
+    .subscribe-form button {
+      position: absolute;
+      right: 0; 
+      background: #ff5e14;
+      padding: 13px 20px; 
+      border: 1px solid #ff5e14;
+      top: 0; 
+    }
+    .subscribe-form button i { 
+      color: #fff;
+      font-size: 22px; 
+      transform: rotate(-6deg);
+      }
+       .copyright-area{
+         background: #202020; 
+         padding: 25px 0;
+         } 
+         .copyright-text p {
+           margin: 0;
+           font-size: 14px;
+           color: #878787;
+            } 
+            .copyright-text p a{ color: /*#ff5e14*/#18af23;
+            } 
+            .footer-menu li { 
+              display: inline-block; margin-left: 20px;
+          }
+          .footer-menu li:hover a{ color: #ff5e14;
+          } 
+          .footer-menu li a {
+            font-size: 14px;
+            color: #878787;
+            }
+            
+    /*STYLLING CONTACT FORM*/
+ .container55 {
+   padding: 15px;
+   margin: 25px;
+   border-radius: 15px;
+   box-shadow: 0 5px 20px rgba(0,0,0,0.9);
+ }
+   
+   body {
+     background: white;
+   }
+   h3 {
+     text-shadow: 2px 2px 5px green;
+   }
+
+      body { 
+      position: relative;
+      } 
+      
+      #section1 {
+      padding-top:50px;
+      width: 100%;
+      height:100vh;
+      background-image: url('IMG-20210724-WA0013.jpg');
+      background-repeat: no-repeat;
+      position: relative;
+      overflow: hidden;
+      background-size: cover;
+     /* height: auto;
+      width: auto;*/
+      }
+      
+      #section2 {
+      padding-top:50px;
+      width: 100%;
+      height:140vh;
+      color: black;
+      background-color: white;
+      }  
+       
+      #section3 {
+        width: 100%;
+      padding-top:50px;
+      height:130vh;
+      color: black;
+      background-color: white;
+      } 
+      
+      #section41 {
+      padding-top:50px;
+      width: 100%;
+      height:200vh;
+      color: #fff; 
+      background-color:white;
+      } 
+      #section43 {
+        padding-top: 50px;
+        width: 100%;
+        height: 200vh;
+        color: black;
+        background-color: white;
+      }
+      
+      #section42 {
+        width: 100%;
+        height: 200vh;
+      padding-top:50px;
+      height:/*350px*/40rem;
+      color: #fff;
+      background-color:/* #009688*/;
+      }
+      
+      /*Styling text p*/
+      .gaurav {
+        color: black;
+        text-shadow: 2px 2px 5px white;
+        text-align: left;
+        padding: 20px;
+        margin: 15px;
+      }
+      
+      h1 {
+        background: linear-gradient(to bottom, #2980b9, #2c3e50);
+        -webkit-text-fill-color: transparent;
+        -webkit-background-clip: text;
+      }
+      
+
+      
+     html {
+scroll-behavior: smooth;
+}
+
+.mobile {
+  color: red;
+}
+.container-fluid {
+  background-color: ;
+  box-shadow: 2px 5px 8px white;
+}
+svg {
+  margin: 8px;
+} 
+
+.samsung {
+  margin: 20px;
+  margin-top: 20px;
+  margin-left: 25px;
+  height: 400px;
+  width: 300px;
+  border-radius: 15px;
+  box-shadow: 2px 5px 8px black;
+  justify-content: center;
+  align-content: center;
+
+}
+
+.burger {
+  color: black;
+  text-align: center;
+}
+   label {
+     color: black;
+}
+.btn {
+  background-color: black;
+}
+h4 {
+  font-size: 2rem;
+  margin-left: 25px;
+}
+.container99 {
+  color: black;
+  text-shadow: 2px 2px 5px black;
+}
+
+/*STYLING ABOUT CARDS*/
+.card {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+ /* margin: 30px;*/
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.45);
+}
+    
+.card {
+  /* Add shadows to create the "card" effect */
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  border-radius: 5px;
+  width: 50%;
+  height: 50%;
+}
+
+/* On mouse-over, add a deeper shadow */
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+/* Add some padding inside the card container */
+.container {
+  padding: 2px 16px;
+}
+img {
+  border-radius: 5px;
+}
+
+/*STYLING CARDS*/
+   .container100 {
+       /* height: 550px;
+        width: 100%;
+        /*border: 2px solid black;*/
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        text-align: center;
+        filter: blure(30px);
+        align-items: center;
+        justify-content: center;
+      }
+    .item {
+        width: 150px;
+        height: 200px;
+        margin: 5px;
+        padding: 3px;
+        border-radius: 5px;
+        background: linear-gradient(white);
+        filter: blure(30px);
+        text-align: center;
+        box-shadow: 2px 5px 8px black;
+      }
+     /*Second flex box*/
+      .gaurav {
+        text-align: center;
+        width:150px;
+        height:/* 450px*/200px;
+        margin: 5px;
+        padding: 3px;
+        border-radius: 5px;
+        background: linear-gradient(white);
+        filter: blure(30px);
+        box-shadow: 2px 5px 8px black;
+      }
+      img {
+        border-radius: 5px;
+      }
+      
+   .item11 {
+     justify-content: center;
+     position: relative;
+     align-items: center;
+     text-align: center;
+        width: 200px;
+        height: 270px;
+        margin: 20px;
+        padding: 3px;
+        border-radius: 5px;
+        background: linear-gradient(white);
+        filter: blure(30px);
+        text-align: center;
+        box-shadow: 2px 5px 8px black;
+      }
+      
+   .container1000 {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        text-align: center;
+        filter: blure(30px);
+        align-items: center;
+        justify-content: center;
+      }
+      
+@media screen and (max-width: 800px){
+    item11 {
+      display: block;
+        position: /*fixed*/relative;
+        z-index: 3;
+    }
+}
+.container55 {
+  justify-content: center;
+  align-content: center;
+}
+
+/*STYLING RATE IN CARD OF OUR CLASSES */
+    .dollar {
+      width: 60px;
+      height: 60px;
+    align-content: center;
+      align-items: center;
+  background-color: red;
+  color: white;
+  border-radius: 50%;
+  padding: 20px;
+ float: right;
+ box-shadow: 2px 2px 5px black;
+}
+
+/*STYLING LANDING PAGE TEXT*/
+h6 {
+  font-size: 4.5rem;
+ /* color: white;*/
+  background: linear-gradient(to bottom,/* #2980b9*/ white,  /* #2c3e50*/white);
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+}
+
+.button111 {
+  align-content: center;
+  align-items: center;
+  text-align: center;
+}
+      </style> 
+      </head> 
+ <body data-spy="scroll" data-target=".navbar" data-offset="50"> 
+ 
+    <nav>
+        <div class="logo">
+            <!--<img src="logo.svg" alt="Logo Image">-->
+            <h4>fitnesshub.</h4>
+        </div>
+        <div class="hamburger">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+        </div>
+        <ul class="nav-links2">
+            <li><a href="#section1">Home</a></li>
+            <li><a href="#section2">About</a></li>
+            <li><a href="#section3">Services</a></li>
+            <li><a href="#section43">Classes</a></li>
+            <li><a href="#section41">Contact</a></li>
+        </ul>
+    </nav>
+    <script>
+const hamburger = document.querySelector(".hamburger");
+const navLinks2 = document.querySelector(".nav-links2");
+const links = document.querySelectorAll(".nav-links2 li");
+
+hamburger.addEventListener('click', ()=>{
+   //Animate Links
+    navLinks2.classList.toggle("open");
+    links.forEach(link => {
+        link.classList.toggle("fade");
+    });
+
+    //Hamburger Animation
+    hamburger.classList.toggle("toggle");
+});
+    </script>
+  
+    <div id="section1" class="container-fluid">
+
+     <div class="container88">
+   <h1>Fitness Hub</h1> 
+                  </div>
+       <br><br>           
+   <div class="container99">
+     <h6 class="w3-animate-right" style="animation-duration: 2s;">Transform Your Body.</h6>
+<h6 class="w3-animate-left" style="animation-duration: 2s;">Make your Dream Come True With Fitness Hub
+           </h6>
+           
+<div class="button111">
+ <a class="btn btn-success" href="#section2" style="background-color:red"><b>Get Start</b> </a>
+ <a class="btn btn-success" href="#section41" style="background-color:red"><b>Contact</b></a>
+</div> 
+ </div>
+            </div>
+  
+<div id="section2" class="container-fluid">
+   <h1 style="text-align:center;">About.</h1>
+<br><br>
+   <div class="container" data-aos="fade-up">
+      <div class="row">  
+      <div class="col-md-6">
+      <h2><b>Hello, we are fitnesshub</b></h2><br>
+      <p>A personal trainer is an individual who has earned a certificate that demonstrates that they have achieved a level of competency for creating and delivering safe and  effective exercise programs for opparently healthy individuals and groups. <br> they motivate clients by collaborating to set gools, providing meaningful feedback, and by being a reliable source for accountability. Thank you.</p>
+      </div>
+      <div class="col-md-6">
+        
+   <div class="container100" data-aos="fade-up"><br><br><br>
+      <div class="cars">
+      <div class="item" id="item-1">
+     <img src="IMG-20210721-WA0019.jpg" width="100%" height="100px">
+          <b style="text-align:center">Gaurav Indulkar</b>
+          <p>Yoga Instructor</p>
+   <a href="https://www.facebook.com/gaurav.indulkar.96" class="fa fa-facebook"></a>
+          <a href="https://www.instagram.com/p/CKdSKuIBdOKx7kUELmYF3ojEOwcFnyJGZUOSEo0/?igshid=1q0xnw8af76fh" class="fa fa-instagram"></a>
+          <a href="https://www.linkedin.com/in/gaurav-indulkar-6266621bb" class="fa fa-linkedin"></a>
+          <a href="https://www.instagram.com/p/CKdSKuIBdOKx7kUELmYF3ojEOwcFnyJGZUOSEo0/?igshid=1q0xnw8af76fh" class="fa fa-twitter"></a>
+     </div> 
+     </div>
+ <div class="gaurav" id="item-2">
+  <img src="IMG-20210721-WA0018.jpg" width="100%">
+   <b style="text-align:center">Gaurav Indulkar</b>
+   <p>Yoga Instructor</p>
+   <a href="https://www.facebook.com/gaurav.indulkar.96" class="fa fa-facebook"></a>
+          <a href="https://www.instagram.com/p/CKdSKuIBdOKx7kUELmYF3ojEOwcFnyJGZUOSEo0/?igshid=1q0xnw8af76fh" class="fa fa-instagram"></a>
+          <a href="https://www.linkedin.com/in/gaurav-indulkar-6266621bb" class="fa fa-linkedin"></a>
+          <a href="https://www.instagram.com/p/CKdSKuIBdOKx7kUELmYF3ojEOwcFnyJGZUOSEo0/?igshid=1q0xnw8af76fh" class="fa fa-twitter"></a>
+   </div>
+   
+      </div>
+      </div>
+      </div>
+      
+   </div>
+   </div> 
+       <br>
+     <div id="section3" class="container-fluid"> 
+     <h1 style="text-align:center;">Services</h1>
+     <h3>We are Specialist in</h3>
+     <br>
+    <div class="container" data-aos="fade-up">
+      <div class="row"> 
+      <div class="col-md-6">
+   <i class="bi bi-award-fill"></i>
+   <svg style="color:green"xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-award-fill" viewBox="0 0 16 16">
+  <path d="m8 0 1.669.864 1.858.282.842 1.68 1.337 1.32L13.4 6l.306 1.854-1.337 1.32-.842 1.68-1.858.282L8 12l-1.669-.864-1.858-.282-.842-1.68-1.337-1.32L2.6 6l-.306-1.854 1.337-1.32.842-1.68L6.331.864 8 0z"/>
+  <path d="M4 11.794V16l4-1 4 1v-4.206l-2.018.306L8 13.126 6.018 12.1 4 11.794z"/>
+</svg>Cardio Equipment
+<br>
+   <i class="bi bi-award-fill"></i><svg style="color:green"xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-award-fill" viewBox="0 0 16 16">
+  <path d="m8 0 1.669.864 1.858.282.842 1.68 1.337 1.32L13.4 6l.306 1.854-1.337 1.32-.842 1.68-1.858.282L8 12l-1.669-.864-1.858-.282-.842-1.68-1.337-1.32L2.6 6l-.306-1.854 1.337-1.32.842-1.68L6.331.864 8 0z"/>
+  <path d="M4 11.794V16l4-1 4 1v-4.206l-2.018.306L8 13.126 6.018 12.1 4 11.794z"/>
+</svg>Free Trail<br>
+   <i class="bi bi-award-fill"></i><svg style="color:green"xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-award-fill" viewBox="0 0 16 16">
+  <path d="m8 0 1.669.864 1.858.282.842 1.68 1.337 1.32L13.4 6l.306 1.854-1.337 1.32-.842 1.68-1.858.282L8 12l-1.669-.864-1.858-.282-.842-1.68-1.337-1.32L2.6 6l-.306-1.854 1.337-1.32.842-1.68L6.331.864 8 0z"/>
+  <path d="M4 11.794V16l4-1 4 1v-4.206l-2.018.306L8 13.126 6.018 12.1 4 11.794z"/>
+</svg>Weight Loss Program<br>
+   <i class="bi bi-award-fill"></i><svg style="color:green"xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-award-fill" viewBox="0 0 16 16">
+  <path d="m8 0 1.669.864 1.858.282.842 1.68 1.337 1.32L13.4 6l.306 1.854-1.337 1.32-.842 1.68-1.858.282L8 12l-1.669-.864-1.858-.282-.842-1.68-1.337-1.32L2.6 6l-.306-1.854 1.337-1.32.842-1.68L6.331.864 8 0z"/>
+  <path d="M4 11.794V16l4-1 4 1v-4.206l-2.018.306L8 13.126 6.018 12.1 4 11.794z"/>
+</svg>Personal Training
+<br>
+   <i class="bi bi-award-fill"></i><svg style="color:green"xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-award-fill" viewBox="0 0 16 16">
+  <path d="m8 0 1.669.864 1.858.282.842 1.68 1.337 1.32L13.4 6l.306 1.854-1.337 1.32-.842 1.68-1.858.282L8 12l-1.669-.864-1.858-.282-.842-1.68-1.337-1.32L2.6 6l-.306-1.854 1.337-1.32.842-1.68L6.331.864 8 0z"/>
+  <path d="M4 11.794V16l4-1 4 1v-4.206l-2.018.306L8 13.126 6.018 12.1 4 11.794z"/>
+</svg>Died And Nutrition Plan
+      </div>
+      
+      
+      <div class="col-md-6">
+   <i class="bi bi-award-fill"></i><svg style="color:green"xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-award-fill" viewBox="0 0 16 16">
+  <path d="m8 0 1.669.864 1.858.282.842 1.68 1.337 1.32L13.4 6l.306 1.854-1.337 1.32-.842 1.68-1.858.282L8 12l-1.669-.864-1.858-.282-.842-1.68-1.337-1.32L2.6 6l-.306-1.854 1.337-1.32.842-1.68L6.331.864 8 0z"/>
+  <path d="M4 11.794V16l4-1 4 1v-4.206l-2.018.306L8 13.126 6.018 12.1 4 11.794z"/>
+</svg>Strength Training Equipment<br>
+   <i class="bi bi-award-fill"></i><svg style="color:green"xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-award-fill" viewBox="0 0 16 16">
+  <path d="m8 0 1.669.864 1.858.282.842 1.68 1.337 1.32L13.4 6l.306 1.854-1.337 1.32-.842 1.68-1.858.282L8 12l-1.669-.864-1.858-.282-.842-1.68-1.337-1.32L2.6 6l-.306-1.854 1.337-1.32.842-1.68L6.331.864 8 0z"/>
+  <path d="M4 11.794V16l4-1 4 1v-4.206l-2.018.306L8 13.126 6.018 12.1 4 11.794z"/>
+</svg>Sunday Open<br>
+   <i class="bi bi-award-fill"></i><svg style="color:green"xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-award-fill" viewBox="0 0 16 16">
+  <path d="m8 0 1.669.864 1.858.282.842 1.68 1.337 1.32L13.4 6l.306 1.854-1.337 1.32-.842 1.68-1.858.282L8 12l-1.669-.864-1.858-.282-.842-1.68-1.337-1.32L2.6 6l-.306-1.854 1.337-1.32.842-1.68L6.331.864 8 0z"/>
+  <path d="M4 11.794V16l4-1 4 1v-4.206l-2.018.306L8 13.126 6.018 12.1 4 11.794z"/>
+</svg>Weight Gain Program<br>
+   <i class="bi bi-award-fill"></i><svg style="color:green"xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-award-fill" viewBox="0 0 16 16">
+  <path d="m8 0 1.669.864 1.858.282.842 1.68 1.337 1.32L13.4 6l.306 1.854-1.337 1.32-.842 1.68-1.858.282L8 12l-1.669-.864-1.858-.282-.842-1.68-1.337-1.32L2.6 6l-.306-1.854 1.337-1.32.842-1.68L6.331.864 8 0z"/>
+  <path d="M4 11.794V16l4-1 4 1v-4.206l-2.018.306L8 13.126 6.018 12.1 4 11.794z"/>
+</svg>Membership Scheme<br>
+   <i class="bi bi-award-fill"></i><svg style="color:green"xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-award-fill" viewBox="0 0 16 16">
+  <path d="m8 0 1.669.864 1.858.282.842 1.68 1.337 1.32L13.4 6l.306 1.854-1.337 1.32-.842 1.68-1.858.282L8 12l-1.669-.864-1.858-.282-.842-1.68-1.337-1.32L2.6 6l-.306-1.854 1.337-1.32.842-1.68L6.331.864 8 0z"/>
+  <path d="M4 11.794V16l4-1 4 1v-4.206l-2.018.306L8 13.126 6.018 12.1 4 11.794z"/>
+</svg>Special Offers And Discounts </div>
+      </div>
+      </div><hr><br>
+ <h3>Amenities</h3><br>
+   <div class="container" data-aos="fade-up">
+      <div class="row"> 
+      <div class="col-md-6">
+   <i class="bi bi-award-fill"></i><svg style="color:green"xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-award-fill" viewBox="0 0 16 16">
+  <path d="m8 0 1.669.864 1.858.282.842 1.68 1.337 1.32L13.4 6l.306 1.854-1.337 1.32-.842 1.68-1.858.282L8 12l-1.669-.864-1.858-.282-.842-1.68-1.337-1.32L2.6 6l-.306-1.854 1.337-1.32.842-1.68L6.331.864 8 0z"/>
+  <path d="M4 11.794V16l4-1 4 1v-4.206l-2.018.306L8 13.126 6.018 12.1 4 11.794z"/>
+</svg>Locker Facility<br>
+   <i class="bi bi-award-fill"></i><svg style="color:green"xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-award-fill" viewBox="0 0 16 16">
+  <path d="m8 0 1.669.864 1.858.282.842 1.68 1.337 1.32L13.4 6l.306 1.854-1.337 1.32-.842 1.68-1.858.282L8 12l-1.669-.864-1.858-.282-.842-1.68-1.337-1.32L2.6 6l-.306-1.854 1.337-1.32.842-1.68L6.331.864 8 0z"/>
+  <path d="M4 11.794V16l4-1 4 1v-4.206l-2.018.306L8 13.126 6.018 12.1 4 11.794z"/>
+</svg>Parking Available
+      </div>
+      <div class="col-md-6">
+   <i class="bi bi-award-fill"></i><svg style="color:green"xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-award-fill" viewBox="0 0 16 16">
+  <path d="m8 0 1.669.864 1.858.282.842 1.68 1.337 1.32L13.4 6l.306 1.854-1.337 1.32-.842 1.68-1.858.282L8 12l-1.669-.864-1.858-.282-.842-1.68-1.337-1.32L2.6 6l-.306-1.854 1.337-1.32.842-1.68L6.331.864 8 0z"/>
+  <path d="M4 11.794V16l4-1 4 1v-4.206l-2.018.306L8 13.126 6.018 12.1 4 11.794z"/>
+</svg>Steam Bath Facility<br>
+   <i class="bi bi-award-fill"></i><svg style="color:green"xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-award-fill" viewBox="0 0 16 16">
+  <path d="m8 0 1.669.864 1.858.282.842 1.68 1.337 1.32L13.4 6l.306 1.854-1.337 1.32-.842 1.68-1.858.282L8 12l-1.669-.864-1.858-.282-.842-1.68-1.337-1.32L2.6 6l-.306-1.854 1.337-1.32.842-1.68L6.331.864 8 0z"/>
+  <path d="M4 11.794V16l4-1 4 1v-4.206l-2.018.306L8 13.126 6.018 12.1 4 11.794z"/>
+</svg>Aerobics
+      </div>
+      </div>
+      </div>
+      
+
+
+   </p> </div> 
+ 
+   <div id="section43" class="container-fluid">
+    <h1 style="text-align:center">Our Training Classes</h1> 
+    <h4 style="text-align:center">Get A Perfect Body</h4>
+  <div class="container1000" data-aos="fade-up" style="padding:50px">
+      <div class="cars" data-aos="fade-up">
+        
+      <div class="item11" id="item-1">
+     <img src="IMG-20210724-WA0010.jpg" width="100%" height="100px">
+
+     
+          <b>yoga</b>
+          <p>Trained by - <b>Gaurav</b></p>
+          <div class="dollar">
+            <b>$30</b>
+          </div>
+         <p style="text-align:left" style="margin:10px"> Lorem ipsum dolar sit amet, comsectetur adipiscing.</p>
+         <b style="text-align:center" >Fitness Hub</b>
+          </div>
+          </div>
+          
+ 
+      <div class="cars" data-aos="fade-up">
+      <div class="item11" id="item-1">
+     <img src="IMG-20210724-WA0008.jpg" width="100%" height="100px">
+          <b>Areobic</b>
+          <p>Trained by - <b>Gaurav</b></p>
+  <div class="dollar">
+            <b>$30</b>
+          </div>
+    <p style="text-align:left" style="margin:10px"> Lorem ipsum dolar sit amet, comsectetur adipiscing.</p>
+         <b style="text-align:center" >Fitness Hub</b>
+          </div>
+          </div>
+          
+      <div class="cars" data-aos="fade-up">
+      <div class="item11" id="item-1">
+     <img src="IMG-20210724-WA0009.jpg" width="100%" height="100px">
+          <b>Cardio</b>
+          <p>Trained by - <b>Gaurav</b></p>
+  <div class="dollar">
+            <b>$30</b>
+          </div>
+    <p style="text-align:left" style="margin:10px"> Lorem ipsum dolar sit amet, comsectetur adipiscing.</p>
+         <b style="text-align:center" >Fitness Hub</b>
+      </div>
+      </div>
+       </div>   
+    
+   </div>
+   
+                  
+  <br>
+   <div id="section41" class="container-fluid">
+      <h1 style="text-align:center;">Contact Us.</h1> 
+      <br><br><br>
+      
+<!--  <div class="container border">-->
+      <div class="row"> 
+      <div class="col-md-6">
+   <h4 style="color:black">Feel free to ask anything</h4>
+   <div class="container55" data-aos="fade-up">
+     <div class="burger">
+    <b style="text-align:center" 
+    style="text-color:black">Please do not hesitate to send Me a message.</b></div><br>
+    
+  <form class="contactform" action="contact.php">
+<div class="form-group">
+  <label for="Name">Full Name:</label>
+   <input type="Name" class="form-control" id="Name"
+          placeholder="Your Name...." name="Name"></div>
+   <div class="form-group">
+   <label for="email">Email:</label>
+   <input type="email" class="form-control" id="email"
+          placeholder="Your email...." name="email"></div>
+          
+   <div class="form-group">
+  <label for="Message">Comment:</label>
+<div class="form-group">
+  <textarea class="form-control" placeholder="Leave a comment here...." id="floatingTextarea2" name="message" style="height: 100px"></textarea>
+</div>
+          </div>
+          <br>
+          <div class="container1">
+<a class="btn btn-success" style="width:100%" onclick="alert ('Thankyou for your answers')">Submit</a>
+</div><br><br>
+          </form>
+      </div> 
+      </div>
+      <div class="col-md-6">
+        <h4 style="color:black">Where You Can Find Us.</h4>
+        <b style="color:black">● 120-204 Rio de Janerio - State of Rio de Janerio, </b>
+     <div class="samsung" data-aos="fade-up">
+       <img src="IMG-20210721-WA0020-1.jpg" height="400px" width="300px">
+     </div>
+      </div>
+      </div>
+      </div>
+   </div> <br>
+                
+   <!--<div id="section42" class="container-fluid">
+
+   </div>-->
+                  
+<footer class="footer-section">
+   <div class="container">
+      <div class="footer-cta pt-5 pb-5"> 
+      <div class="row">
+         <div class="col-xl-4 col-md-4 mb-30">
+            <div class="single-cta">
+               <i class="fas fa-map-marker-alt">
+               </i> 
+               <div class="cta-text"> <h4>Find us</h4>
+               <span>101 Om Dhan Laxmi Co-op. hsg. Soc. Ltd. Laxmi Complex virar (E)</span>
+               </div>
+               </div> 
+               </div>
+               <div class="col-xl-4 col-md-4 mb-30">
+                  <div class="single-cta">
+                    <!-- <i class="fas fa-phone">
+                     </i> -->
+                     <div class="cta-text">
+                        <h4>Call us</h4> 
+                        <span>8655502180</span> </div>
+                        </div>
+                        </div> 
+                        <div class="col-xl-4 col-md-4 mb-30"> <div class="single-cta"> <!--<i class="far fa-envelope-open"></i> --> 
+                        <div class="cta-text"> <h4>Mail us</h4> <span>gauravindulkar0@gmail.com</span>
+                        </div> 
+                        </div> </div> </div> </div><!-- <div class="footer-content pt-5 pb-5"> <div class="row"> <div class="col-xl-4 col-lg-4 mb-50"> <div class="footer-widget"> <div class="footer-logo"> <a href="index.html"><img src="https://i.ibb.co/QDy827D/ak-logo.png" class="img-fluid" alt="logo"></a> </div> <div class="footer-text"> <p>Lorem ipsum dolor sit amet, consec tetur adipisicing elit, sed do eiusmod tempor incididuntut consec tetur adipisicing elit,Lorem ipsum dolor sit amet.</p> --></div> 
+                        <div class="footer-social-icon"> 
+                        <span>Follow us</span> 
+  <a href="https://www.facebook.com/gaurav.indulkar.96" class="fa fa-facebook" style="color:#3B5998;"></a>
+          <a href="https://www.instagram.com/p/CKdSKuIBdOKx7kUELmYF3ojEOwcFnyJGZUOSEo0/?igshid=1q0xnw8af76fh" class="fa fa-instagram" style="color:#c34700;"></a>
+          <a href="https://www.linkedin.com/in/gaurav-indulkar-6266621bb" class="fa fa-linkedin" style="color: #007bb5;"></a>
+          <a href="https://www.instagram.com/p/CKdSKuIBdOKx7kUELmYF3ojEOwcFnyJGZUOSEo0/?igshid=1q0xnw8af76fh" class="fa fa-twitter" style="color: #55ACEE;"></a><br><br>
+ </div> </div> </div> 
+ <div class="col-xl-4 col-lg-4 col-md-6 mb-30"> <div class="footer-widget"> <div class="footer-widget-heading"> <h3>Useful Links</h3> 
+      </div>
+    <ul> <li>
+    <a href="#section1">Home</a>
+    </li> <li>
+   <a href="#section2">about</a>
+  </li> <li>
+    <a href="#section3">services</a>
+    </li> <li>
+      <a href="https://portfoliocvgaura.000webhostapp.com/">portfolio</a>
+      </li>
+      <button>
+        <i class="fab fa-telegram-plane"></i>
+        </button>
+        </form> 
+        </div> 
+        </div>
+        </div>
+        </div>
+        </div>
+        </div> 
+        <div class="copyright-area"> <div class="container">
+           <div class="row">
+              <div class="col-xl-6 col-lg-6 text-center text-lg-left"> 
+              <div class="copyright-text">
+                 <p>Copyright &copy; 22/4/2021, All Right Reserved
+                 <a href="https://portfoliocvgaura.000webhostapp.com/">Gaurav Uday Indulkar.</a></p> </div> 
+                        </div> 
+                        <div class="col-xl-6 col-lg-6 d-none d-lg-block text-right"> 
+                        <div class="footer-menu">
+                           <ul> <li><a href="Imgsliding.html">Home</a></li> <li><a href="#">Terms</a></li> <li><a href="#">Privacy</a></li> <li><a href="#">Policy</a></li> <li><a href="#">Contact</a></li> </ul> </div> </div> </div> </div> </div> </footer>
+
+  </body> 
+ <script>
+    AOS.init({
+      duration: 1600,
+    });
+  </script>
+                  </html>
